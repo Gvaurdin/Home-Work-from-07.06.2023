@@ -9,7 +9,7 @@ Money::Money()
 
 Money::~Money()
 {
-    count--;
+    count_money--;
 }
 
 Money::Money(int _rub, int _kop)
