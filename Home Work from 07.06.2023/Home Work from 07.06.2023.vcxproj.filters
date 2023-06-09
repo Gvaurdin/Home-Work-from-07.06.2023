@@ -23,7 +23,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Class Time(тема Дружба HW_6)\Time.h">
+    <ClInclude Include="Class Money(статические компоненты класса HW_7)\Money.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

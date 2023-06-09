@@ -7,6 +7,11 @@ Money::Money()
     count_money++;
 }
 
+Money::~Money()
+{
+    count--;
+}
+
 Money::Money(int _rub, int _kop)
 {
     if (_rub >= 0) rub = _rub;
@@ -136,7 +141,10 @@ void Money::show_info(Money& m)
 
 ostream& operator<<(ostream& os, Money& m)
 {
-    cout << m.rub << " rubles. " << m.kop << " kopecks.\n";
+    cout << Money::currency << endl <<
+        m.rub << " rubles. " << m.kop << " kopecks.\n" <<
+        "\n=========================\n";
+
     return os;
 }
 
@@ -158,5 +166,6 @@ int Money::C_USD_Dollar = 82;
 int Money::C_USD_Cent = 60;
 int Money::count = 0;
 int Money :: count_money = 0;
+string Money::currency = "Ruble account";
 
 

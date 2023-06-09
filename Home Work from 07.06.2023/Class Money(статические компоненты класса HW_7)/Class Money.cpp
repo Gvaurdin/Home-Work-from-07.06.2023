@@ -12,6 +12,7 @@ int main()
         system("cls");
         cout << "\t\t\t\tMoney editor\n" <<
             "\t\t\Enter P(p) to show your balance\n" <<
+            "\t\t\Enter D(d) to show additional balances accounts\n" <<
             "\t\t\Enter sign (+) to add money to your balance\n" <<
             "\t\tEnter sign (-) to deduct money from your balance\n" <<
             "\t\tEnter the (%) sign to see the percentage of your money on the balance\n" <<
@@ -24,9 +25,18 @@ int main()
         case 'P':
         case 'p':
             system("cls");
-            cout << "Your balance : ";
             cout << money;
             money.show_info(money);
+            system("pause");
+            break;
+        case 'D':
+        case 'd':
+            system("cls");
+            cout << "Additional balances accounts\n";
+            for (int i = 0; i < 3; ++i)
+            {
+                cout << i + 1 << ' ' << mas_money[i];
+            }
             system("pause");
             break;
         case '+':

@@ -14,8 +14,10 @@ private:
     static int C_USD_Cent;
     static int count;
     static int count_money;
+    static string currency;
 public:
     Money();
+    ~Money();
     Money(int _rub, int _kop);
     void Set_Money(int _rub, int _kop);
     friend ostream& operator << (ostream& os, Money& m);
