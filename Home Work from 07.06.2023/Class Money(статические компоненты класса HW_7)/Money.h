@@ -15,6 +15,7 @@ private:
     static int count;
     static int count_money;
     static string currency;
+    static bool block;
 public:
     Money();
     ~Money();
@@ -28,7 +29,9 @@ public:
     Money operator -(const Money& money);
     Money Percent(int percent);
     Money operator ++();
-    static void convert_to_USD(Money& money);
-    void show_info(Money& m);
+    static void Convert_to_USD(Money& money);
+    void Show_Info(Money& m);
+    static bool Money_Block(bool block);
+
 };
 

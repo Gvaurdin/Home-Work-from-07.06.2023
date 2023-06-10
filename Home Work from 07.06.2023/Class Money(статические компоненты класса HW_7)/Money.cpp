@@ -54,6 +54,7 @@ Money Money::Addition(int _rub, int _kop)
 }
 
 Money Money::operator +(const Money& money)
+
 {
     rub = rub + money.rub;
     kop = kop + money.kop;
@@ -64,6 +65,7 @@ Money Money::operator +(const Money& money)
 
 Money Money::operator - (const Money& money)
 {
+
     if (rub < money.rub) cout << "Error\n";
     else rub = rub - money.rub;
     if (kop < money.kop && rub > 0) {
@@ -78,6 +80,8 @@ Money Money::operator - (const Money& money)
 
 Money Money::Percent(int percent)
 {
+
+
     Money tmp;
     tmp.rub = rub * (float)percent / 100;
     tmp.kop = kop * (float)percent / 100;
@@ -88,6 +92,7 @@ Money Money::Percent(int percent)
 }
 
 Money Money::operator++()
+
 {
     ++rub, ++kop;
     if (kop > 99) {
@@ -98,7 +103,7 @@ Money Money::operator++()
     return Money();
 }
 
-void Money::convert_to_USD(Money& money)
+void Money::Convert_to_USD(Money& money)
 {
     float total_RUB = (float)money.rub + (money.kop / 100);
     float total_USD = (float)C_USD_Dollar + (C_USD_Cent / 100);
@@ -107,7 +112,7 @@ void Money::convert_to_USD(Money& money)
         (int)RUB_USD << " dollars. " << (int)RUB_USD % 100 << " cents.\n";
 }
 
-void Money::show_info(Money& m)
+void Money::Show_Info(Money& m)
 {
     char c{};
     cout << "Enter Y(y), if you want to see more information, " <<
@@ -124,26 +129,39 @@ void Money::show_info(Money& m)
     if (c == 'N' || c == 'n') cout << "Finish the operation\n";
     else
     {
-        cout << "\n=============================================\n" <<
-            "Ruble to dollar exchange rate : " << Money::C_USD_Dollar <<
-            " rubles. " << Money::C_USD_Cent << " kopecks.\n";
-        m.convert_to_USD(m);
-        cout << "\n=============================================\n" <<
-            "The number of successfully completed operations during the current session :" <<
-            Money::count << endl << "The number of accounts created (the system account doesn`t count) : " <<
-            Money::count_money << endl;
+        if (!Money::block)
+        {
+            cout << "\n=============================================\n" <<
+                "Ruble to dollar exchange rate : " << Money::C_USD_Dollar <<
+                " rubles. " << Money::C_USD_Cent << " kopecks.\n";
+            m.Convert_to_USD(m);
+            cout << "\n=============================================\n" <<
+                "The number of successfully completed operations during the current session :" <<
+                Money::count << endl << "The number of accounts created (the system account doesn`t count) : " <<
+                Money::count_money << endl;
+        }
+        else cout << "Need to unlock your balance accounts\n";
     }
 
 
 }
 
+bool Money::Money_Block(bool block)
+{
+    Money::block = block;
+    return Money::block;
+}
+
+
 
 
 ostream& operator<<(ostream& os, Money& m)
 {
-    cout << Money::currency << endl <<
+    if (!Money::block)
+        cout << Money::currency << endl <<
         m.rub << " rubles. " << m.kop << " kopecks.\n" <<
         "\n=========================\n";
+    else cout << "Your balance accounts blocked\n";
 
     return os;
 }
@@ -167,5 +185,5 @@ int Money::C_USD_Cent = 60;
 int Money::count = 0;
 int Money :: count_money = 0;
 string Money::currency = "Ruble account";
-
+bool Money::block = false;
 

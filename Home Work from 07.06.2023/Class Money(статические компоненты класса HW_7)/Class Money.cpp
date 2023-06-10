@@ -6,7 +6,8 @@ int main()
     Money money, money_2(0,0); char menu{};
     Money mas_money[3];
     int rub{}, kop{}, percent{};
-    bool flag = false;
+    bool flag = false, block{};
+    block = Money::Money_Block(false);
     while (flag == false)
     {
         system("cls");
@@ -17,6 +18,8 @@ int main()
             "\t\tEnter sign (-) to deduct money from your balance\n" <<
             "\t\tEnter the (%) sign to see the percentage of your money on the balance\n" <<
             "\t\tEnter A(a) to add 1 unit to your amount of rubles and kopecks on the balance\n" <<
+            "\t\tEnter B(b) to block your balance accounts\n" <<
+            "\t\tEnter U(u) to unlock your balance accounts\n" <<
             "\t\tEnter E(e) to exit the editor\n\n" <<
             "\t\t\tEnter a command to select an action : ";
         cin >> menu;
@@ -26,7 +29,7 @@ int main()
         case 'p':
             system("cls");
             cout << money;
-            money.show_info(money);
+            money.Show_Info(money);
             system("pause");
             break;
         case 'D':
@@ -40,46 +43,80 @@ int main()
             system("pause");
             break;
         case '+':
-            cout << "\t\tEnter the amount of money you want to add to your balance\n" <<
-                "\tThe limit of rubles to add = 100000\n" <<
-                "\tThe limit of kopecks to add = 99\n";
-            cin >> money_2;
-            money + money_2;
-            cout << "\t\t\tMoney successfully added\n";
+            system("cls");
+            if (!block)
+            {
+                cout << "\t\tEnter the amount of money you want to add to your balance\n" <<
+                    "\tThe limit of rubles to add = 100000\n" <<
+                    "\tThe limit of kopecks to add = 99\n";
+                cin >> money_2;
+                money + money_2;
+                cout << "\t\t\tMoney successfully added\n";
+            }
+            else cout << "First you need to unlock your balance accounts\n";
             system("pause");
             break;
         case '-':
             system("cls");
-            cout << money;;
-            cout << "\tImportant! The money you want to withdraw" <<
-                " must not exceed the amount of your balance\n" <<
-                "\tThe limit of rubles to withdraw = 100000\n" <<
-                "\tThe limit of kopecks to withdraw = 99\n";
-            cin >> money_2;
-            money - money_2;
-            cout << "\t\t\tMoney successfully withdrawn\n";
+            if (!block)
+            {
+                cout << money;;
+                cout << "\tImportant! The money you want to withdraw" <<
+                    " must not exceed the amount of your balance\n" <<
+                    "\tThe limit of rubles to withdraw = 100000\n" <<
+                    "\tThe limit of kopecks to withdraw = 99\n";
+                cin >> money_2;
+                money - money_2;
+                cout << "\t\t\tMoney successfully withdrawn\n";
+            }
+            else cout << "First you need to unlock your balance accounts\n";
             system("pause");
             break;
         case '%':
-            cout << "Specify the percentage to be calculated" <<
-                " from the amount of money on your balance\n" <<
-                "Percent : "; cin >> percent;
-            while (percent < 1 || percent > 100)
+            system("cls");
+            if (!block)
             {
-                cout << "Error. Try again\n" <<
+                cout << "Specify the percentage to be calculated" <<
+                    " from the amount of money on your balance\n" <<
                     "Percent : "; cin >> percent;
+                while (percent < 1 || percent > 100)
+                {
+                    cout << "Error. Try again\n" <<
+                        "Percent : "; cin >> percent;
+                }
+                money_2 = money.Percent(percent);
+                cout << percent << " percent of the amount of money on your balance = ";
+                cout << money_2;
             }
-            money_2 = money.Percent(percent);
-            cout << percent << " percent of the amount of money on your balance = ";
-            cout << money_2;
+            else cout << "First you need to unlock your balance accounts\n";
             system("pause");
             break;
         case 'A':
         case 'a':
             system("cls");
-            ++money;
-            cout << "1 unit has been successfully added" <<
-                " to the amount of rubles and kopecks on your balance\n";
+            if (!block)
+            {
+                ++money;
+                cout << "1 unit has been successfully added" <<
+                    " to the amount of rubles and kopecks on your balance\n";
+            }
+            else cout << "First you need to unlock your balance accounts\n";
+            system("pause");
+            break;
+        case 'B':
+        case 'b':
+            system("cls");
+            Money::Money_Block(true);
+            block = Money::Money_Block(true);
+            cout << "You block balance accounts\n";
+            system("pause");
+            break;
+        case 'U':
+        case 'u':
+            system("cls");
+            Money::Money_Block(false);
+            block = Money::Money_Block(false);
+            cout << "You unlock balance accounts\n";
             system("pause");
             break;
         case 'E':
