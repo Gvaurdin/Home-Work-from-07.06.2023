@@ -19,11 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Class Credit(hw_9 функции с различным количеством и типом параметров)\Credit-main.cpp" />
-    <ClCompile Include="Class Credit(hw_9 функции с различным количеством и типом параметров)\Credit.cpp" />
+    <ClCompile Include="Class Money(HW_9 - Функции с разным количеством и типом аргументов)\Class Money.cpp" />
+    <ClCompile Include="Class Money(HW_9 - Функции с разным количеством и типом аргументов)\Money.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Class Credit(hw_9 функции с различным количеством и типом параметров)\Credit.h" />
+    <ClInclude Include="Class Money(HW_9 - Функции с разным количеством и типом аргументов)\Money.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
