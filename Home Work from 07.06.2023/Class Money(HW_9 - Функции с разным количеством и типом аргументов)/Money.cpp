@@ -234,15 +234,15 @@ void Set_Count_Pursh(int* p)
     }
     if (c == 'N' || c == 'n')
     {
-        for (int i = 0; i < 5; ++i)
+        for (int i = 0; i < 7; ++i)
         {
             p[i] = rand() % 11;
         }
     }
     else
     {
-        cout << "\n\tAttention. Maximum of 10 purchases for 1 day\n";
-        for (int i = 0; i < 5; ++i)
+        cout << "\n\tAttention. Maximum of 10 purchases for 7 day\n";
+        for (int i = 0; i < 7; ++i)
         {
             cout << "\n\t\tEnter count purchases of " << i + 1 << " day : ";
             cin >> p[i];
@@ -285,6 +285,6 @@ void Calculator_of_Purchases_and_Sum_Count_Purchases(int count, bool typeof, ...
     }
     else
     {
-        cout << "\n\t\tNumber of purchases in 5 days = " << count_purchase << endl;
+        cout << "\n\t\tNumber of purchases in 7 days = " << count_purchase << endl;
     }
 }

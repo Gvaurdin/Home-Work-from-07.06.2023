@@ -7,7 +7,7 @@ int main()
     Money mas_money[3];
     int rub{}, kop{}, percent{};
     bool flag = false, block{};
-    double sum[5]{}; int pursh[5]{};
+    double sum[5]{}; int pursh[7]{};
     block = Money::Money_Block(false);
     while (flag == false)
     {
@@ -130,7 +130,7 @@ int main()
                 Calculator_of_Purchases_and_Sum_Count_Purchases(5, true, sum[0], sum[1], sum[2], sum[3], sum[4]);
                 Sleep(10000);
                 Set_Count_Pursh(pursh);
-                Calculator_of_Purchases_and_Sum_Count_Purchases(5, false, pursh[0], pursh[1], pursh[2], pursh[3], pursh[4]);
+                Calculator_of_Purchases_and_Sum_Count_Purchases(7, false, pursh[0], pursh[1], pursh[2], pursh[3], pursh[4],pursh[5],pursh[6]);
                 Sleep(10000);
             }
             else
