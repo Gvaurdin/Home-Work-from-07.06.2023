@@ -14,7 +14,6 @@ private:
     static int C_USD_Cent;
     static int count;
     static int count_money;
-    static string currency;
     static bool block;
 public:
     Money();
@@ -32,6 +31,10 @@ public:
     static void Convert_to_USD(Money& money);
     void Show_Info(Money& m);
     static bool Money_Block(bool block);
-
+    friend void Set_Purchases_Price(double* m , Money money);
 };
+
+
+void Set_Count_Pursh(int* p);
+void Calculator_of_Purchases_and_Sum_Count_Purchases(int count, bool typeof, ...);
 

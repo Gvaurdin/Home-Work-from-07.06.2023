@@ -1,5 +1,11 @@
 #include "Money.h"
 
+
+int Money::count = 0;
+int Money::count_money = 0;
+int Money::C_USD_Cent = 50;
+int Money::C_USD_Dollar = 85;
+bool Money::block = false;
 Money::Money()
 {
     rub = 10000;
@@ -80,8 +86,6 @@ Money Money::operator - (const Money& money)
 
 Money Money::Percent(int percent)
 {
-
-
     Money tmp;
     tmp.rub = rub * (float)percent / 100;
     tmp.kop = kop * (float)percent / 100;
@@ -158,8 +162,7 @@ bool Money::Money_Block(bool block)
 ostream& operator<<(ostream& os, Money& m)
 {
     if (!Money::block)
-        cout << Money::currency << endl <<
-        m.rub << " rubles. " << m.kop << " kopecks.\n" <<
+        cout << m.rub << " rubles. " << m.kop << " kopecks.\n" <<
         "\n=========================\n";
     else cout << "Your balance accounts blocked\n";
 
@@ -180,10 +183,108 @@ istream& operator>>(istream& is, Money& m)
     return is;
 }
 
-int Money::C_USD_Dollar = 82;
-int Money::C_USD_Cent = 60;
-int Money::count = 0;
-int Money :: count_money = 0;
-string Money::currency = "Ruble account";
-bool Money::block = false;
+void Set_Purchases_Price(double* m, Money money)
+{
+    char c{};
+    cout << "\n\tEnter Y(y), if you want to set the values manually, " <<
+        "enter N(n) if you want to set values automatically\n" <<
+        "Select an action : ";
+    cin >> c;
+    while (c != (char)78 && c != (char)110 &&
+        c != (char)89 && c != (char)121)
+    {
+        cout << "Error\n" <<
+            "Select an action again :";
+        cin >> c;
+    }
+    if (c == 'N' || c == 'n')
+    {
+        for (int i = 0; i < 5; ++i)
+        {
+            money.rub = 1000 + rand() % (100000 - 1000);
+            money.kop = 1 + rand() % (99 - 1);
+            m[i] += (double)money.rub + ((double)money.kop / 100);
+        }
+    }
+    else
+    {
+        cout << "\n\tAttention. Maximum of 100,000 rubles for 1 purchase\n";
+        for (int i = 0; i < 5; ++i)
+        {
+            cout << "\n\t\tEnter sum purchases of " << i + 1 << " day\n";
+            cin >> money;
+            m[i] += (double)money.rub + ((double)money.kop / 100);
+        }
+    }
+}
 
+void Set_Count_Pursh(int* p)
+{
+    char c{};
+    cout << "\n\tEnter Y(y), if you want to set the values manually, " <<
+        "enter N(n) if you want to set values automatically\n" <<
+        "\n\t\tSelect an action : ";
+    cin >> c;
+    while (c != (char)78 && c != (char)110 &&
+        c != (char)89 && c != (char)121)
+    {
+        cout << "\n\t\tError\n" <<
+            "\n\t\tSelect an action again :";
+        cin >> c;
+    }
+    if (c == 'N' || c == 'n')
+    {
+        for (int i = 0; i < 5; ++i)
+        {
+            p[i] = rand() % 11;
+        }
+    }
+    else
+    {
+        cout << "\n\tAttention. Maximum of 10 purchases for 1 day\n";
+        for (int i = 0; i < 5; ++i)
+        {
+            cout << "\n\t\tEnter count purchases of " << i + 1 << " day : ";
+            cin >> p[i];
+            while (p[i] < 1 || p[i] > 10)
+            {
+                cout << "\n\t\tError\n" <<
+                    "\n\t\tEnter count purchases again :";
+                cin >> p[i];
+            }
+        }
+    }
+}
+
+void Calculator_of_Purchases_and_Sum_Count_Purchases(int count, bool typeof, ...)
+{
+    int count_purchase = 0;
+    double d_sum = 0.0;
+    va_list arg_ptr;
+    va_start(arg_ptr, count);
+    va_arg(arg_ptr, bool);
+    while (count--)
+    {
+        if (typeof == true)
+        {
+            d_sum += va_arg(arg_ptr, double);
+        }
+        else
+        {
+            count_purchase += va_arg(arg_ptr, int);
+        }
+    }
+    va_end(arg_ptr);
+    if (typeof == true)
+    {
+        Money m, tmp;
+        m.Set_Money((int)d_sum, (int)d_sum % 100);
+        cout << "\n\t\tThe amount of purchases in 5 days = " << m << endl;
+        tmp = m.Percent(5);
+        cout << "\n\t\tCashback from purchases in 5 days = " << tmp << endl;
+    }
+    else
+    {
+        cout << "\n\t\tNumber of purchases in 5 days = " << count_purchase << endl;
+    }
+}

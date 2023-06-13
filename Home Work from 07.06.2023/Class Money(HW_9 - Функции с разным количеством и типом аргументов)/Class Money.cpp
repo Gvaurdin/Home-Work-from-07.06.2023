@@ -7,6 +7,7 @@ int main()
     Money mas_money[3];
     int rub{}, kop{}, percent{};
     bool flag = false, block{};
+    double sum[5]{}; int pursh[5]{};
     block = Money::Money_Block(false);
     while (flag == false)
     {
@@ -20,6 +21,7 @@ int main()
             "\t\tEnter A(a) to add 1 unit to your amount of rubles and kopecks on the balance\n" <<
             "\t\tEnter B(b) to block your balance accounts\n" <<
             "\t\tEnter U(u) to unlock your balance accounts\n" <<
+            "\t\tEnter to K(k) to calculate the amount of purchases in 5 days\n" <<
             "\t\tEnter E(e) to exit the editor\n\n" <<
             "\t\t\tEnter a command to select an action : ";
         cin >> menu;
@@ -118,6 +120,24 @@ int main()
             block = Money::Money_Block(false);
             cout << "You unlock balance accounts\n";
             system("pause");
+            break;
+        case 'K':
+        case 'k':
+            system("cls");
+            if (!block)
+            {
+                Set_Purchases_Price(sum, money_2);
+                Calculator_of_Purchases_and_Sum_Count_Purchases(5, true, sum[0], sum[1], sum[2], sum[3], sum[4]);
+                Sleep(10000);
+                Set_Count_Pursh(pursh);
+                Calculator_of_Purchases_and_Sum_Count_Purchases(5, false, pursh[0], pursh[1], pursh[2], pursh[3], pursh[4]);
+                Sleep(10000);
+            }
+            else
+            {
+                cout << "First you need to unlock your balance accounts\n";
+                Sleep(10000);
+            }
             break;
         case 'E':
         case'e':
