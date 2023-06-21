@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Class Money(HW_9 - Функции с разным количеством и типом аргументов)\Class Money.cpp">
+    <ClCompile Include="One-armed bandit game\One_Armed_Bandit.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Class Money(HW_9 - Функции с разным количеством и типом аргументов)\Money.cpp">
+    <ClCompile Include="One-armed bandit game\One-armed bandit game.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Class Money(HW_9 - Функции с разным количеством и типом аргументов)\Money.h">
+    <ClInclude Include="One-armed bandit game\One_Armed_Bandit.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

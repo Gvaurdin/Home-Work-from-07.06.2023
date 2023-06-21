@@ -19,11 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Class Money(HW_9 - Функции с разным количеством и типом аргументов)\Class Money.cpp" />
-    <ClCompile Include="Class Money(HW_9 - Функции с разным количеством и типом аргументов)\Money.cpp" />
+    <ClCompile Include="One-armed bandit game\One-armed bandit game.cpp" />
+    <ClCompile Include="One-armed bandit game\One_Armed_Bandit.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Class Money(HW_9 - Функции с разным количеством и типом аргументов)\Money.h" />
+    <ClInclude Include="One-armed bandit game\One_Armed_Bandit.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
