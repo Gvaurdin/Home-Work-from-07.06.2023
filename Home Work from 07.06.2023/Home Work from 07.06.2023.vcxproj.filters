@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="One-armed bandit game\One_Armed_Bandit.cpp">
+    <ClCompile Include="Dynamic Structs Data(HW_14)\Dymamic structs data.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="One-armed bandit game\One-armed bandit game.cpp">
+    <ClCompile Include="Dynamic Structs Data(HW_14)\Printer_Print.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="One-armed bandit game\One_Armed_Bandit.h">
+    <ClInclude Include="Dynamic Structs Data(HW_14)\Printer_Program.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

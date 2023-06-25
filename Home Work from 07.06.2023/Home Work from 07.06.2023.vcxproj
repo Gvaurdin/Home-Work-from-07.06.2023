@@ -19,11 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="One-armed bandit game\One-armed bandit game.cpp" />
-    <ClCompile Include="One-armed bandit game\One_Armed_Bandit.cpp" />
+    <ClCompile Include="Dynamic Structs Data(HW_14)\Dymamic structs data.cpp" />
+    <ClCompile Include="Dynamic Structs Data(HW_14)\Printer_Print.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="One-armed bandit game\One_Armed_Bandit.h" />
+    <ClInclude Include="Dynamic Structs Data(HW_14)\Printer_Program.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
