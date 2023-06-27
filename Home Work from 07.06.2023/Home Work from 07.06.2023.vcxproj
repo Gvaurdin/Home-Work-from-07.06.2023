@@ -19,11 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Dynamic Structs Data(HW_14)\Dymamic structs data.cpp" />
-    <ClCompile Include="Dynamic Structs Data(HW_14)\Printer_Print.cpp" />
+    <ClCompile Include="Template_array_functions\Resources_template_arr_functions.cpp" />
+    <ClCompile Include="Template_array_functions\Template array functions.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Dynamic Structs Data(HW_14)\Printer_Program.h" />
+    <ClInclude Include="Template_array_functions\Template_arr_functions.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
