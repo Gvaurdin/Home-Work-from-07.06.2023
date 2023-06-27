@@ -28,11 +28,14 @@ void func_init(T* array, int size)
 template<typename T>
 void func_show(T* array, int size)
 {
-	for (int i = 0; i < size; ++i)
+	if (array != nullptr)
 	{
-		cout << "[" << i +1 <<"] : " << array[i] << "  ";
+		for (int i = 0; i < size; ++i)
+		{
+			cout << "[" << i + 1 << "] : " << array[i] << "  ";
+		}
+		cout << endl;
 	}
-	cout << endl;
 }
 
 template<typename T>
@@ -45,61 +48,73 @@ void func_delete(T* array)
 template<typename T>
 int func_max(T* array, int size)
 {
-	T max = INT_MIN, i_max = 0;
-	for (int i = 0; i < size; ++i)
+	if (array != nullptr)
 	{
-		if (array[i] > max)
+		T max = INT_MIN, i_max = 0;
+		for (int i = 0; i < size; ++i)
 		{
-			max = array[i];
-			i_max = i;
+			if (array[i] > max)
+			{
+				max = array[i];
+				i_max = i;
+			}
 		}
+		return i_max;
 	}
-	return i_max;
 }
 
 template<typename T>
 int func_min(T* array, int size)
 {
-	T min = INT_MIN, i_min = 0;
-	for (int i = 0; i < size; ++i)
+	if (array != nullptr)
 	{
-		if (array[i] < min)
+		T min = INT_MIN, i_min = 0;
+		for (int i = 0; i < size; ++i)
 		{
-			min = array[i];
-			i_min = i;
+			if (array[i] < min)
+			{
+				min = array[i];
+				i_min = i;
+			}
 		}
+		return i_min;
 	}
-	return i_min;
 }
 
 template<typename T>
 T func_avg(T* array, int size)
 {
-	T sum{};
-	for (int i = 0; i < size; ++i)
+	if (array != nullptr)
 	{
-		sum += array[i];
+		T sum{};
+		for (int i = 0; i < size; ++i)
+		{
+			sum += array[i];
+		}
+		return sum / size;
 	}
-	return sum / size;
 }
 
 template<typename T>
 void func_sort(T* array, int size)
 {
-	int min = 0;
-	for (int i = 0; i < size - 1; ++i)
+	if (array != nullptr)
 	{
-		min = i;
-		for (int j = i + 1; j < size; ++j)
+		int min = 0;
+		for (int i = 0; i < size - 1; ++i)
 		{
-			if (array[j] < array[min])
+			min = i;
+			for (int j = i + 1; j < size; ++j)
 			{
-				min = j;
+				if (array[j] < array[min])
+				{
+					min = j;
+				}
 			}
-		}
-		if (min != i)
-		{
-			swap(array[i], array[min]);
+			if (min != i)
+			{
+				swap(array[i], array[min]);
+			}
 		}
 	}
 }

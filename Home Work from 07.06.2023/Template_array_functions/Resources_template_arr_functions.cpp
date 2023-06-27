@@ -33,6 +33,7 @@ void func_Menu()
 			func_build(arr_int, size);
 			func_init(arr_int, size);
 			func_Menu_Array(arr_int, size);
+			func_delete(arr_int);
 		}
 		break;
 		case '2':
@@ -41,6 +42,7 @@ void func_Menu()
 			func_build(arr_float, size);
 			func_init(arr_float, size);
 			func_Menu_Array(arr_float, size);
+			func_delete(arr_float);
 		}
 		break;
 		case '3':
@@ -49,6 +51,7 @@ void func_Menu()
 			func_build(arr_char, size);
 			func_init(arr_char, size);
 			func_Menu_Array(arr_char, size);
+			func_delete(arr_char);
 		}
 		break;
 		default:
