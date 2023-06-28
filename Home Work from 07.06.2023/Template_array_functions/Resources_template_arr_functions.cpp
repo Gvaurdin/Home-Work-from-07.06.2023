@@ -5,7 +5,7 @@ void func_Menu()
 	bool p = true;
 	do
 	{
-		char choise{}; int size{};
+		char choise{}; int row{}, col{};
 		cout << "\n\t\t\tArray editor\n" <<
 			"\tWhat type of element array do you want to create?\n" <<
 			"\tChange : " << "1 - array int, 2 - array double, 3 - array char \n" <<
@@ -17,41 +17,49 @@ void func_Menu()
 				"\t\t\tEnter choise again : ";
 			cin >> choise;
 		}
-		cout << "\tEnter size array :";
-		cin >> size;
-		while (size < 2 || size > 50)
+		cout << "\tEnter number rows array :";
+		cin >> row;
+		while (row < 2 || row > 10)
 		{
 			cout << "\t\t Error input\n" <<
 				"Enter size again : ";
-			cin >> size;
+			cin >> row;
+		}
+		cout << "\tEnter number columns array :";
+		cin >> col;
+		while (col < 2 || col > 20)
+		{
+			cout << "\t\t Error input\n" <<
+				"Enter size again : ";
+			cin >> col;
 		}
 		switch (choise)
 		{
 		case '1':
 		{
-			int* arr_int{};
-			func_build(arr_int, size);
-			func_init(arr_int, size);
-			func_Menu_Array(arr_int, size);
-			func_delete(arr_int);
+			int** arr_int{};
+			func_build(arr_int,row,col);
+			func_init(arr_int, row, col);
+			func_Menu_Array(arr_int,row, col);
+			func_delete(arr_int,row);
 		}
 		break;
 		case '2':
 		{
-			float* arr_float{};
-			func_build(arr_float, size);
-			func_init(arr_float, size);
-			func_Menu_Array(arr_float, size);
-			func_delete(arr_float);
+			float** arr_float{};
+			func_build(arr_float, row, col);
+			func_init(arr_float, row, col);
+			func_Menu_Array(arr_float, row, col);
+			func_delete(arr_float, row);
 		}
 		break;
 		case '3':
 		{
-			char* arr_char{};
-			func_build(arr_char, size);
-			func_init(arr_char, size);
-			func_Menu_Array(arr_char, size);
-			func_delete(arr_char);
+			char** arr_char{};
+			func_build(arr_char, row, col);
+			func_init(arr_char, row, col);
+			func_Menu_Array(arr_char, row, col);
+			func_delete(arr_char,row);
 		}
 		break;
 		default:

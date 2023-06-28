@@ -4,59 +4,80 @@
 #include <iomanip> 
 using namespace std;
 
-template <typename T> void  func_build(T*& array, int size);
-template <typename T> void  func_init(T* array, int size);
-template <typename T> void  func_show(T* array, int size);
-template <typename T> void  func_delete(T* array);
+template <typename T> void  func_build(T**& array, int row, int col);
+template <typename T> void  func_init(T** array, int row, int col);
+template <typename T> void  func_show(T** array, int row, int col);
+template <typename T> void  func_delete(T** array,int row);
 void func_Menu();
 
 template<typename T>
-void func_build(T*& array, int size)
+void func_build(T**& array, int row, int col)
 {
-	array = new T[size];
-}
-
-template<typename T>
-void func_init(T* array, int size)
-{
-	for (int i = 0; i < size; ++i)
+	array= new T*[row];
+	for (int i = 0; i < row; i++)
 	{
-		array[i] = rand() % 25 + 65 + rand() % 100 / 100.0;
+		array[i] = new T[col];
 	}
 }
 
 template<typename T>
-void func_show(T* array, int size)
+void func_init(T** array, int row, int col)
 {
-	if (array != nullptr)
+	for (int i = 0; i < row; ++i)
 	{
-		for (int i = 0; i < size; ++i)
+		for (int j = 0; j < col; j++)
 		{
-			cout << "[" << i + 1 << "] : " << array[i] << "  ";
+			array[i][j] = rand() % 25 + 65 + rand() % 100 / 100.0;
 		}
-		cout << endl;
 	}
 }
 
 template<typename T>
-void func_delete(T* array)
-{
-	delete[] array;
-	array = NULL;
-}
-
-template<typename T>
-int func_max(T* array, int size)
+void func_show(T** array, int row, int col)
 {
 	if (array != nullptr)
 	{
-		T max = INT_MIN, i_max = 0;
-		for (int i = 0; i < size; ++i)
+		for (int i = 0; i < row; ++i)
 		{
-			if (array[i] > max)
+			for (int j = 0; j < col; j++)
 			{
-				max = array[i];
-				i_max = i;
+				cout << array[i][j] << "  ";
+			}
+			cout << endl;
+		}
+	}
+}
+
+template<typename T>
+void func_delete(T** array,int row)
+{
+	if (array != nullptr)
+	{
+		for (int i = 0; i < row; i++) {
+			delete array[i];
+		}
+		delete[] array;
+		array = NULL;
+	}
+}
+
+template<typename T>
+int* func_max(T** &array, int row, int col)
+{
+	if (array != nullptr)
+	{
+		int max = INT_MIN;
+		int* i_max = new int[2];
+		for (int i = 0; i < row; i++)
+		{
+			for (int j = 0; j < col; j++)
+			{
+				if (array[i][j] > max)
+				{
+					max = array[i][j];
+					i_max[0] = i;
+					i_max[1] = j;
+				}
 			}
 		}
 		return i_max;
@@ -64,17 +85,22 @@ int func_max(T* array, int size)
 }
 
 template<typename T>
-int func_min(T* array, int size)
+int* func_min(T** array, int row, int col)
 {
 	if (array != nullptr)
 	{
-		T min = INT_MIN, i_min = 0;
-		for (int i = 0; i < size; ++i)
+		int min = INT_MAX;
+		int* i_min = new int[2];
+		for (int i = 0; i < row; i++)
 		{
-			if (array[i] < min)
+			for (int j = 0; j < col; j++)
 			{
-				min = array[i];
-				i_min = i;
+				if (array[i][j] < min)
+				{
+					min = array[i][j];
+					i_min[0] = i;
+					i_min[1] = j;
+				}
 			}
 		}
 		return i_min;
@@ -82,45 +108,50 @@ int func_min(T* array, int size)
 }
 
 template<typename T>
-T func_avg(T* array, int size)
+T func_avg(T** array, int row, int col)
 {
 	if (array != nullptr)
 	{
 		T sum{};
-		for (int i = 0; i < size; ++i)
+		for (int i = 0; i < row; i++)
 		{
-			sum += array[i];
+			for (int j = 0; j < col; ++j)
+			{
+				sum += array[i][j];
+			}
 		}
-		return sum / size;
+		return sum / (row * col);
 	}
 }
 
 template<typename T>
-void func_sort(T* array, int size)
+void func_sort(T** array, int row, int col)
 {
 	if (array != nullptr)
 	{
-		int min = 0;
-		for (int i = 0; i < size - 1; ++i)
+		for (int k = 0; k < row; k++)
 		{
-			min = i;
-			for (int j = i + 1; j < size; ++j)
+			for (int r = 0; r < col; r++)
 			{
-				if (array[j] < array[min])
+				for (int i = 0; i < row; i++)
 				{
-					min = j;
+
+					for (int j = 0; j < col; j++)
+					{
+
+						if (array[i][j] > array[k][r])
+						{
+							swap(array[i][j],array[k][r]);
+						}
+					}
 				}
-			}
-			if (min != i)
-			{
-				swap(array[i], array[min]);
 			}
 		}
 	}
 }
 
 template<typename T>
-void func_Menu_Array(T* array, int size)
+void func_Menu_Array(T** array, int row, int col)
 {
 	char num{}; bool flag = true;
 	if (array != nullptr)
@@ -129,7 +160,7 @@ void func_Menu_Array(T* array, int size)
 		{
 			system("cls");
 			cout << "Your custom array :\n";
-			func_show(array, size);
+			func_show(array,row,col);
 			cout << "\n====================\n";
 			cout << setw(20) << "Array Menu\n" <<
 				setw(10) << "Enter 1 -  to sorting your array\n" <<
@@ -149,7 +180,7 @@ void func_Menu_Array(T* array, int size)
 			{
 				system("cls");
 				cout << "We sorting your array....\n";
-				func_sort(array, size);
+				func_sort(array,row,col);
 				Sleep(1000);
 				system("cls");
 				cout << "Your array successfully sorted\n";
@@ -160,15 +191,19 @@ void func_Menu_Array(T* array, int size)
 			{
 				system("cls");
 				cout << "Your custom array :\n";
-				func_show(array, size);
-				int max = func_max(array, size);
-				int min = func_min(array, size);
-				T avg = func_avg(array, size);
-				cout << "MAX element = " << "[" << max + 1 << "] : " <<
-					array[max] << endl;
-				cout << "MIN element = " << "[" << min + 1 << "] : " <<
-					array[min] << endl;
+				func_show(array,row,col);
+				int* max = new int[2];
+				int* min = new int[2];
+				max = func_max(array, row, col);
+				min = func_min(array, row, col);
+				T avg = func_avg(array,row,col);
+				cout << "MAX element = " << "[ROW " << max[0] + 1 << "]" <<
+					"[COL " << max[1] + 1 << "] : " << array[max[0]][max[1]] << endl;
+				cout << "MIN element = " << "[ROW " << min[0] + 1 << "]" <<
+					"[COL " << min[1] + 1 << "] : " << array[min[0]][min[1]] << endl;
 				cout << "AVG element = " << avg << endl;
+				delete[] max;
+				delete[] min;
 				system("pause");
 			}
 				break;
