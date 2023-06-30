@@ -19,11 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Template_array_functions\Resources_template_arr_functions.cpp" />
-    <ClCompile Include="Template_array_functions\Template array functions.cpp" />
+    <ClCompile Include="Figure class (HW_16 aggregation)\Class Figure main.cpp" />
+    <ClCompile Include="Figure class (HW_16 aggregation)\Figure.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Template_array_functions\Template_arr_functions.h" />
+    <ClInclude Include="Figure class (HW_16 aggregation)\Figure.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
