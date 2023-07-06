@@ -19,11 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Figure class (HW_16 aggregation)\Class Figure main.cpp" />
-    <ClCompile Include="Figure class (HW_16 aggregation)\Figure.cpp" />
+    <ClInclude Include="HW_12(Lesson 8)\The two - linked list(HW_12)\List_2X.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Figure class (HW_16 aggregation)\Figure.h" />
+    <ClCompile Include="HW_12(Lesson 8)\The two - linked list(HW_12)\List_2X.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -15,16 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Figure class (HW_16 aggregation)\Class Figure main.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Figure class (HW_16 aggregation)\Figure.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Figure class (HW_16 aggregation)\Figure.h">
+    <ClInclude Include="HW_12(Lesson 8)\The two - linked list(HW_12)\List_2X.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="HW_12(Lesson 8)\The two - linked list(HW_12)\List_2X.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
