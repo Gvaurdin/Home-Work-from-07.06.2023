@@ -156,7 +156,7 @@ void func_menu()
 	while (flag == false)
 	{
 		system("cls");
-		cout << "\t\t\t\tFigure editor\n" <<
+		cout << "\t\t\t\tInk editor\n" <<
 			"\t\t\Enter 1 to show list ink materials\n" <<
 			"\t\tEnter 2 to show list components\n" <<
 			"\t\tEnter 3 to create and show recipe\n" <<
