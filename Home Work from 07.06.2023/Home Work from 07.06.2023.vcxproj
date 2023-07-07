@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -19,11 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Ink`s recipes(HW_16)\Ink`s recipes main()(HW_16).cpp" />
-    <ClCompile Include="Ink`s recipes(HW_16)\Ink`s recipes.cpp" />
+    <ClInclude Include="HW_12(Lesson 8)\The two - linked list(HW_12)\List_2X.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Ink`s recipes(HW_16)\Ink`s recipes.h" />
+    <ClCompile Include="HW_12(Lesson 8)\The two - linked list(HW_12)\List_2X.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
