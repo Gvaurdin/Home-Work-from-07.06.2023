@@ -15,15 +15,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Ink`s recipes(HW_16)\Ink`s recipes main()(HW_16).cpp">
+    <ClCompile Include="other options for creating a Commodity class object(HW_18)\Commodity main().cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Ink`s recipes(HW_16)\Ink`s recipes.cpp">
+    <ClCompile Include="other options for creating a Commodity class object(HW_18)\Commodity.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="other options for creating a Commodity class object(HW_18)\Container.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="other options for creating a Commodity class object(HW_18)\Product.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Ink`s recipes(HW_16)\Ink`s recipes.h">
+    <ClInclude Include="other options for creating a Commodity class object(HW_18)\Commodity.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="other options for creating a Commodity class object(HW_18)\Container.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="other options for creating a Commodity class object(HW_18)\Product.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

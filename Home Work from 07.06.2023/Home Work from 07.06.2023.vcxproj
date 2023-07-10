@@ -19,11 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Ink`s recipes(HW_16)\Ink`s recipes main()(HW_16).cpp" />
-    <ClCompile Include="Ink`s recipes(HW_16)\Ink`s recipes.cpp" />
+    <ClCompile Include="other options for creating a Commodity class object(HW_18)\Commodity main().cpp" />
+    <ClCompile Include="other options for creating a Commodity class object(HW_18)\Commodity.cpp" />
+    <ClCompile Include="other options for creating a Commodity class object(HW_18)\Container.cpp" />
+    <ClCompile Include="other options for creating a Commodity class object(HW_18)\Product.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Ink`s recipes(HW_16)\Ink`s recipes.h" />
+    <ClInclude Include="other options for creating a Commodity class object(HW_18)\Commodity.h" />
+    <ClInclude Include="other options for creating a Commodity class object(HW_18)\Container.h" />
+    <ClInclude Include="other options for creating a Commodity class object(HW_18)\Product.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
