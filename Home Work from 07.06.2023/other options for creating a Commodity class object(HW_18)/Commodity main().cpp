@@ -5,4 +5,5 @@
 int main()
 {
 	func_menu();
+	system("pause");
 }
